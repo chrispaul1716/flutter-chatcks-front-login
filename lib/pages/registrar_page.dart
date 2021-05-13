@@ -9,13 +9,16 @@ class RegistrarPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    final Orientation orientacion = MediaQuery.of(context).orientation;
+
     return Scaffold(
       backgroundColor: Color(0xFFF2F2F2),
       body: SafeArea(
         child: SingleChildScrollView(
-          //physics: BouncingScrollPhysics(),
+          physics: BouncingScrollPhysics(),
           child: Container(
-            height: MediaQuery.of(context).size.height * 0.95,
+            height: (orientacion == Orientation.landscape) ? MediaQuery.of(context).size.height * 1.5 : MediaQuery.of(context).size.height * 0.95,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
@@ -83,7 +86,7 @@ class __FormState extends State<_Form> {
             txtController: passCtrl,
           ), 
 
-          /* ---Boton ingresar--- */
+          /* ---Boton registrar--- */
           BotonAzul(
             text: 'Registrar',
             onPressed: () {
